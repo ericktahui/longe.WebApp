@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+}
+.main__section {
+  width: 50%;
+  border: 1px solid #666666;
+}
+mat-form-field {
+  width: 100%;
+  display: block;
+}
+
+router-outlet {
+  margin-top: 60px;
+}
+
+.active {
+  color: white;
+}

@@ -1,0 +1,16 @@
+1. crear modulo RainbowModule
+2. crear servicio RainbowService
+  en el servicio
+  - crear un arreglo de colores (hex, css, rgba)
+3. crear componente RainbowHover (un div con width 100 y height 100)
+  - consume RainbowService
+  - en el mouseenter cambia a un color al azar
+  - en el mouseleave cambia a otro color al azar
+4. crear directiva RainbowClick
+  - consume RainbowService
+  - utilizar HostListener para escuchar el click
+  - cuando le den click cambia el color del HostBinding
+5. crear componente RainbowListener (un div con width 100 y height 100)
+  - consume RainbowService
+  - cuando cambie el color del componente RainbowHover
+    debe cambiar su color tambien

@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="main__section">
+    <custom-card *ngFor="let user of db.users" (click)="select(user)">
+      <custom-card-header>
+        <h1 customUppercase>Hola {{user.firstName}}</h1>
+        <ul customUppercase>
+          <li>1</li>
+          <li>2</li>
+        </ul>
+      </custom-card-header>
+      <custom-card-content>Content</custom-card-content>
+    </custom-card>
+  </div>
+  <div class="main__section">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="firstName"
+        placeholder="First Name"
+        [(ngModel)]="currentUser.firstName">
+      <button
+        mat-button
+        mat-icon-button
+        matSuffix
+        (click)="currentUser.firstName = ''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="lastName"
+        placeholder="Last Name"
+        [(ngModel)]="currentUser.lastName">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+      matInput
+      type="text"
+      name="age"
+      placeholder="Age"
+      [(ngModel)]="currentUser.age">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+      matInput
+      type="text"
+      name="description"
+      placeholder="Description"
+      [(ngModel)]="currentUser.description">
+    </mat-form-field>
+
+    <button mat-button
+      (click)="changeTextTransform(options.UpperCase)">
+      Mayus
+    </button>
+    <button mat-button
+      (click)="changeTextTransform(options.LowerCase)">
+      Minus
+    </button>
+    <button mat-button
+      (click)="changeTextTransform(options.Capitalize)">
+      Capital
+    </button>
+
+    <custom-upload
+      (finished)="fileFinished()"
+      (started)="fileStarting()"
+      (paused)="filePaused()"
+      (incrementing)="fileIncrementing($event)"></custom-upload>
+    <button (click)="toggleShowAlert()">Toggle</button>
+
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
+
+<custom-alert
+  *ngIf="showAlert"
+  [message]="alertMessage"
+  (closing)="closeAlert()">
+</custom-alert>
+
+
+<div (mouseenter)="onMouseEnter()">HOVER</div>

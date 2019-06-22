@@ -1,0 +1,9 @@
+.upload {
+  background-color: rgb(40, 17, 43);
+  color: whitesmoke;
+  font-family: sans-serif;
+}
+.start,
+.pause {
+  cursor: pointer;
+}

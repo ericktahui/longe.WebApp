@@ -1,0 +1,46 @@
+<div>Dinámico...</div>
+
+<button mat-button (click)="crear(tr)">Crear</button>
+<button mat-button (click)="crear(tr2)">Crear 2</button>
+
+<br>
+<button mat-button (click)="togglePermiso()">Cambiar Permiso</button>
+
+
+<ng-template #tr let-default let-poder="poder" let-y="hermanos">
+    <h1>TemplateRef {{default['nombre'] }}</h1>
+    <h3>Nodes {{poder}}</h3>
+    <ul>
+        <li *ngFor="let hermano of y">{{hermano}}</li>
+    </ul>
+</ng-template>
+
+<ng-template #tr2>
+       <div>Otra cosa</div>
+    </ng-template>
+    
+<ng-container *ngIf="permiso">
+    <div *ngFor="let color of colors">{{color}}</div>
+</ng-container>
+
+
+
+<ng-container  
+    [ngTemplateOutlet]="tr" 
+    [ngTemplateOutletContext]="trContext">
+
+</ng-container>
+
+<!--
+<ng-container  
+    [ngTemplateOutlet]="tr" 
+    [ngTemplateOutletContext]="{$implicit:'pikachu',poder:'trueno'}">
+</ng-container>
+-->
+
+<!-- <div #tr>
+    <h1>TemplateRef</h1>
+</div> -->
+
+
+

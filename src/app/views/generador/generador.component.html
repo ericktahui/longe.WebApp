@@ -1,0 +1,31 @@
+<div>
+
+<br>
+
+<div>
+   <input [(ngModel)]="valorEscrito" (keydown)="agregar$.next({key:$event.key,valor:$event.target.value})"  
+   type="text" placeholder="Agregar...">
+</div>
+
+        
+<mat-selection-list >
+        <mat-list-option 
+                    *ngFor="let depto of departamentos"
+                    checkboxPosition="before"
+                    (click)="myClick(depto)">
+               {{depto.valor}}
+              
+        </mat-list-option>
+ </mat-selection-list>
+
+ <button mat-icon-button  
+ color="primary" 
+ [disabled]="!selected.length"
+ (click)="eliminar()" > 
+ <mat-icon  color="warn" style="cursor: pointer" >
+        delete
+ </mat-icon>
+</button>
+
+</div> 
+        

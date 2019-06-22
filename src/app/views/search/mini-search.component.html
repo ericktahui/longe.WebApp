@@ -1,0 +1,68 @@
+<div>
+    <input (keyup)="stringSearch$.next($event.target.value)"  type="text" placeholder="buscar...">
+
+   <!--   <div *ngIf="users.length !== results.length">    
+        <div>
+            <ul>
+                <li *ngFor="let user of results">
+                    <a [ngClass]="claseClick()" (click)="dioClick($event)">
+                        {{user.name}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>  
+
+<br>
+<div class="elegidos" >
+        {{elegidos.name}}
+</div>
+
+-->
+
+<mat-card>
+<button
+    mat-raised-button
+    [matTooltip]="selectedItem.name"
+    *ngFor="let selectedItem of selected">
+    {{ selectedItem.name}}
+</button>
+</mat-card>
+
+<mat-selection-list >
+    <mat-list-option 
+            *ngFor="let user of results"
+            checkboxPosition="before"
+            (click)="myClick(user)">
+        {{user.name}}
+    </mat-list-option>
+</mat-selection-list>
+
+
+<!--
+
+<mat-card>
+<button
+    mat-raised-button
+    [matTooltip]="opc._element.nativeElement.innerText"
+    *ngFor="let opc of selection.selectedOptions.selected"
+>
+{{ opc._element.nativeElement.innerText}}
+</button>
+</mat-card>
+
+<mat-selection-list 
+        #selection
+        (selectionChange)="meEstanSeleccionando($event)">
+    <mat-list-option 
+            *ngFor="let user of results"
+            checkboxPosition="before"
+            (click)="myClick(user)"
+            >
+        {{user.name}}
+    </mat-list-option>
+</mat-selection-list>
+-->
+
+
+</div>

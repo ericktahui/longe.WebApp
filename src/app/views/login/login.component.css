@@ -1,0 +1,14 @@
+/* @import '//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'; */
+
+a important{ cursor: pointer;
+    color: antiquewhite;
+ }
+   
+a:visited important{
+    color: #E13137;
+}
+
+.max-largo-ctrl{
+    max-width: 300px;
+    display: inline-table !important;
+}

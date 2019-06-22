@@ -1,0 +1,52 @@
+<div>
+<form [formGroup]="myForm" (submit)="onSubmit()">
+    <mat-form-field>
+        <input
+            formControlName="nombre"
+            type="text"
+            matInput
+            placeholder="Nombre"        
+        />
+    </mat-form-field>
+
+    <mat-form-field>
+        <input
+            formControlName="apellido"
+            type="text"
+            matInput
+            placeholder="Apellido"
+        />
+    </mat-form-field>
+
+    <mat-form-field>
+        <input
+            formControlName="edad"
+            type="text"
+            matInput
+            placeholder="Edad"
+        />
+    </mat-form-field>
+
+<mat-form-field>
+    <textarea 
+    matInput
+    formControlName="descripcion" 
+    cols="30" 
+    rows="5">
+</textarea>
+</mat-form-field>
+
+ <mat-form-field>
+     <input
+        formControlName="telefono"
+        matInput
+        type="text"
+        placeholder="Telf."
+     
+     />
+ </mat-form-field>
+<br>
+ <button type="submit" mat-button >OK</button>
+
+</form>
+</div>

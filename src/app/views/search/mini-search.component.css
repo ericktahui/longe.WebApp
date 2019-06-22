@@ -1,0 +1,13 @@
+.elegidos{
+    border: 1px black solid;
+}
+
+.noSeleccionado{
+    text-decoration: none;
+    color: black;
+}
+
+.siSeleccionado{
+    text-decoration: dotted;
+    color: blue;
+}

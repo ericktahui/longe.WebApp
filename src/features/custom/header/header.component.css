@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  height: 40px;
+  /*background-color:#0069D9; */
+  background-color: #2D5A86;
+  color: #6EBE44 !important;
+}
+
+.a{
+  color: antiquewhite;
+  background-color: blueviolet;
+}
+
+.a:active {
+  color: black !important;
+}
+
+.a:visited{
+  color:aqua !important;
+}
+

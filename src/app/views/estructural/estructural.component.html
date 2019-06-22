@@ -1,0 +1,20 @@
+<div>Estructural</div>
+
+
+<!-- Esto es equivalente: -->
+<h1 *propagacion="let x=nombre;">Hola {{x}} </h1>
+
+<!-- <h1 *propagacion="let x=nombre from 'Homero' option uppercase times 3 ">Hola {{x}}</h1> -->
+
+<!--a... de aqui -->
+<ng-template  #tr let-nombre="nombre">
+    <h1>Hola {{nombre}}</h1>
+</ng-template>
+
+
+<ng-container
+ [ngTemplateOutlet]="tr"
+ [ngTemplateOutletContext]="contextoExterno">
+</ng-container>
+<!--.. hata aqui-->
+

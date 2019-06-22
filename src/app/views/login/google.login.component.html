@@ -1,0 +1,11 @@
+
+<div *ngIf='!estaFirmado'>
+      <br>
+   <button  (click)="signIn()" type="button" class="btn btn-secundary" >Iniciar Sesión con Google</button>
+</div>
+
+<div *ngIf='estaFirmado'>
+   Inicio de sesión exitosa
+   <br>
+   <button (click)="signOut()" type="button" class="btn btn-secundary">Cerrar Sesión</button>
+</div>  
