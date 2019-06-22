@@ -1,0 +1,3 @@
+/*
+En esta carpeta esta contenido el codigo de los componentes ts
+*/
