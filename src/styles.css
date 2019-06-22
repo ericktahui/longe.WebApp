@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+/*
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+*/
+
+
+*, ::after, ::before  {
+    box-sizing: border-box;
+  }
+
+.bgc-personalizado{
+    background-color:#EBEBEB !important;
+   /* background-color: #e9ecef; */
+}
+
+.iconos-login{
+  width: 45px;
+}
+
+  .mi-footer {
+    width: 100%;
+    height: 40px;
+   /* background-color:#0069D9; */
+   background-color:#292A2C;
+   color: #f0f0f0;
+  }
+
+.fuente-especial {
+    font-family: "Avant Garde",Avantgarde,"Century Gothic",CenturyGothic,"AppleGothic",sans-serif;
+    margin-bottom: 0px;
+}
+
+.max-largo-ctrl{
+    max-width: 300px;
+    display: inline-table !important;
+}
+
+.alinear-centro {
+    display: inline-table !important;
+}
+
+.largo-300{
+    max-width: 300px !important;
+    padding-left:30% !important;
+    padding-right:30% !important;
+}
