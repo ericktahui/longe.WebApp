@@ -10,6 +10,8 @@ import { AlertService } from 'src/app/services/alert.service';
 import { first } from 'rxjs/operators';
 
 
+
+
 //import {HttpBatcher } from "ngx-http-batcher";
 
 @Component({
@@ -76,23 +78,34 @@ export class LoginComponent implements OnInit {
     this.loading = true;
 
     //Verificamos si el usuario ya inició sesión con google
+    //this.estaFirmado
+
     //PENDIENTE****
 
-    this.authCustom.login(this.f.username.value, this.f.password.value)
+    let username=this.authCustom.encriptar(this.f.username.value);
+    let password= this.authCustom.encriptar(this.f.password.value);
+
+    this.authCustom.login(username,password )
       .pipe(first())
       .subscribe(
         (data) => {
+          console.log('Retorno a la Vista login:');
           console.log(data);
-          this.redirect.navigate([this.returnUrl]);
+          this.loading = false;
+         // this.redirect.navigate([this.returnUrl]);
+          this.redirect.navigate(['/user']);
         },
         error => {
-          this.alertService.error(error);
+          //this.alertService.error(error);
           this.loading = false;
+          this.redirect.navigate(['/error']);
         });
 
   }
 
 
+
+  /* Verifica si el usuario ya Inició sesion */
   public isLoggedIn(): void {
 
     //Verificación si inició sesión con google

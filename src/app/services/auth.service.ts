@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import  User  from 'src/interfaces/user';
 
 import {HttpService} from './http.service';
+import { stringify } from '@angular/core/src/render3/util';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationCustomService {
@@ -22,10 +23,52 @@ export class AuthenticationCustomService {
     }
 
 
+    //  login(username: string, password: string): Object| any {
 
-    login(username: string, password: string) {
+    login(username: string, password: string): Observable<any>{
        
-       // return this.http.post<any>(`/users/authenticate`, { username, password })
+        console.log('Entrando a login de auth.service...');
+
+        username=this.desEncriptar(username);
+        password= this.desEncriptar(password);
+
+        let objRespuesta=[{
+            'nombre':'erick55',
+            'token':'XCVVBRFDFDEEEQWETR9483859',
+            'error': '',
+            'resultado':'true'
+        }];
+
+        
+        let miObservable= new Observable(observer=>{
+        setTimeout(() => {
+            observer.next(objRespuesta)
+        }, 500);
+
+        });
+
+        //Esto será solo para probar
+        if(username=='erick' && password=='pruebas')
+        {
+            //return miObservable;
+            return miObservable
+            .pipe(map((user: Object| any) => {
+                // login successful if there's a jwt token in the response
+                if (user && user.token) {
+                    // store user details and jwt token in local storage to keep user logged in between page refreshes
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    this.currentUserSubject.next(user);
+                }
+
+                return user;
+            }));
+
+
+        }
+        
+
+        /*
+        //Esperemos a que el servicio WEb funcione
        return this.servicioHttp.postRequest('login',{ username, password })
             .pipe(map((user: Object| any) => {
                 // login successful if there's a jwt token in the response
@@ -37,8 +80,10 @@ export class AuthenticationCustomService {
 
                 return user;
             }));
-    }
+       */
 
+
+    }
 
 
     logout() {
@@ -46,6 +91,23 @@ export class AuthenticationCustomService {
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
     }
+
+
+    public encriptar(cadenaEntrada:string):string{
+       let cadEncriptada:string;
+       cadEncriptada=cadenaEntrada;
+
+       return cadEncriptada
+    }
+
+
+    
+    public desEncriptar(cadEncriptada:string):string{
+        let valorReal:string;
+        valorReal=cadEncriptada;
+ 
+        return valorReal
+     }
 
 
 }

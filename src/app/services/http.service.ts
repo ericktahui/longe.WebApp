@@ -14,8 +14,10 @@ export class HttpService  {
     
     rutaRaiz: string = "https://longe.olinrobotclub.com/api/public/api/";
 
+   // rutaRaiz_2: string ="https://longe.olinrobotclub.com/api/public/api/register";
+
     //ruta: string = "http://localhost:4200/api/public/";
-    origin: string = "http://localhost:4200";
+    //origin: string = "http://localhost:4200";
 
     timeout: number = 15 * 60 * 1000;
     options: any;
