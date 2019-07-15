@@ -1,0 +1,55 @@
+<h2>Inicio Sesión</h2>
+<div *ngIf='!estaFirmado'>
+   <div class="formulario-centrado">
+
+      <form [formGroup]="loginForm" (submit)="onSubmit()">
+        <div>
+         <label>Usuario: </label> 
+        </div>
+         <mat-form-field>
+            <input matInput type="text"  formControlName="nombre" >
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+               <div *ngIf="f.username.errors.required">Usuario es requerido</div>
+            </div>
+         </mat-form-field>
+
+         <div>
+         <span class="input-group-addon iconos-login"><i class="glyphicon glyphicon-lock"></i></span>
+         <label>Contraseña: </label> 
+         </div>
+         <mat-form-field>
+             <input matInput type="password"  formControlName="password"
+             [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+             <div *ngIf="f.password.errors.required" style="color: red; font-size: 0.5em;">Contraseña es requerida</div>
+          </div>
+         </mat-form-field>
+
+         
+         <div>
+            <button mat-button [disabled]="loading" type="submit" color="primary">Login</button>
+            <img *ngIf="loading"
+               src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a [routerLink]="['/register']" class="btn btn-link">Registrarse</a>
+
+            <div>
+               <a [routerLink]="['/rescuePass']" class="btn btn-link">¿Olvidaste tu Contraseña?</a>
+            </div>
+         </div>
+
+      </form>
+
+      <br>
+      <div>
+         <button mat-button (click)="signIn()" type="button" style="background-color: #6EBE44;" >Iniciar
+            Sesión con Google</button>
+      </div>
+
+   </div>
+</div>
+
+<div class="row" *ngIf='estaFirmado'>
+   <h2> Se ha iniciado sesión exitosamente </h2>
+   <br>
+   <button (click)="signOut()" type="button" class="btn btn-primary" style="background-color: #6EBE44;">Cerrar Sesión</button>
+</div>
