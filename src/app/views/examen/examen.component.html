@@ -1,6 +1,36 @@
 <div class="main__section">
 
-    <!--
+  
+
+ <form [formGroup]="myForm" (submit)="crear()">
+    <div class="form-group">
+        <label for="nombreAlta">Nombre</label>
+        <input class="form-control" type="text"  id="nombreAlta" formControlName="nombre"  placeholder="Nombre" >
+    </div>
+
+    <div class="form-group">
+        <label for="apellidoAlta">Apellido</label>
+        <input class="form-control" type="text"  id="apellidoAlta" formControlName="apellido"  placeholder="Apellido" >
+    </div>
+
+    <div class="form-group">
+            <label for="edadAlta">Edad</label>
+        <input class="form-control" type="text" id="edadAlta" formControlName="edad"  placeholder="Edad" >
+    </div>
+
+    <div class="form-group">
+            <button class="btn btn-primary float-md-right" type="submit"> Crear </button>
+            <button class="btn btn-secondary float-md-right" (click)="borrar()"> Borrar </button>
+            <button class="btn btn-secondary float-md-right" (click)="actualizar()"> Actualizar </button>
+    </div>
+
+ </form>
+
+</div>
+
+
+
+  <!--
         VERSION ANTERIOR DE ANGULAR AHORA DEPRECATED REVISAR:
         https://angular.io/api/forms/FormControlName#use-with-ngmodel
 
@@ -25,26 +55,4 @@
 
  </form>
     -->
-
- <form [formGroup]="myForm" (submit)="crear()">
-    <mat-form-field >
-        <input matInput type="text"  formControlName="nombre"  placeholder="Nombre" >
-    </mat-form-field>
-
-    <mat-form-field >
-        <input matInput type="text"  formControlName="apellido"  placeholder="Apellido" >
-    </mat-form-field>
-
-    <mat-form-field >
-        <input matInput type="text"  formControlName="edad"  placeholder="Edad" >
-    </mat-form-field>
-
-    <div>
-            <button mat-button type="submit"> Crear </button>
-            <button mat-button (click)="borrar()"> Borrar </button>
-            <button mat-button (click)="actualizar()"> Actualizar </button>
-    </div>
-
- </form>
-
    

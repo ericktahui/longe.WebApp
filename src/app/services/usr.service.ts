@@ -136,10 +136,10 @@ export class UserService {
         console.log(formulario);
        // console.log(formulario.firstName);
 
-        let metodo="register";
+        let metodo="registeruser";
         let usrRegistrar={
             nombre:formulario.firstName,
-            apellido:formulario.lastName,
+            apPaterno:formulario.lastName,
             correo: formulario.email,
             password: formulario.password,
             repetirpassword: formulario.repetirpassword,

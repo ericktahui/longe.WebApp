@@ -1,23 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-//import { HttpClientModule, HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
-//import { Observable } from 'rxjs';
-
-//const headers2 = new Headers().set('Access-Control-Allow-Origin',"http://localhost:4200");
-
 @Injectable()
 export class HttpService  {
 
-  
-    //https://longe.olinrobotclub.com/api/public/usuario/1
+    //Deesarrollo
+    // rutaRaiz: string = "http://10.1.50.122:8079/longe/api/public/api/";
+    //  rutaRaiz: string = "http://localhost:8079/longe/api/public/api/";
     
-    rutaRaiz: string = "https://longe.olinrobotclub.com/api/public/api/";
 
-   // rutaRaiz_2: string ="https://longe.olinrobotclub.com/api/public/api/register";
-
-    //ruta: string = "http://localhost:4200/api/public/";
-    //origin: string = "http://localhost:4200";
+    //Producción
+     rutaRaiz: string = "https://longe.olinrobotclub.com/api3/public/api/";
+  
 
     timeout: number = 15 * 60 * 1000;
     options: any;
@@ -27,15 +21,11 @@ export class HttpService  {
     constructor(private http:HttpClient) { 
         
         this.headers = new HttpHeaders();
-        //this.headers.append('Origin',origin);
-        //this.headers.append('Access-Control-Allow-Origin',origin);
-       // this.headers.set('Access-Control-Allow-Origin',this.origin);
-       // this.headers.set('Content-Type',['application/json','text/html; charset=utf-8','application/x-www-form-urlencoded']);
-       // this.headers.set('Content-Type',['text/plain']);
-       this.headers.set('Content-Type','application/json');
-  
-       // console.log('headers=>');
-       // console.log(this.headers);
+       this.headers.append('Accept','application/json');
+       this.headers.append('Content-Type','application/json');
+       this.headers.append('Origin','localhost:4200');
+       //this.headers.append('Access-Control-Request-Method','POST /cors HTTP/1.1' );
+       
     }
 
 
@@ -45,7 +35,7 @@ export class HttpService  {
     //SERVICIO POST
     postRequest = (url: string, parametros?: Object, customheaders?: string) => this.http.post(`${this.rutaRaiz}${url}`, parametros, {headers : this.headers} );
 
-    // postRequest = (url: string, parametros?: Object, customheaders?: string) => this.http.post(`${this.rutaRaiz}${url}`, parametros, {headers: new HttpHeaders({'Access-Control-Allow-Origin':'*','Content-Type':'application/json; charset=utf-8'})}  );
+   // postRequest = (url: string, parametros?: Object, customheaders?: string) => this.http.post(`${this.rutaRaiz}${url}`, parametros, {headers: new HttpHeaders({'Access-Control-Allow-Origin':'*','Content-Type':'application/json; charset=utf-8'})}  );
    
    // postRequest2 = (url: string, metodo:string, parametros?: Object, customheaders?: string) => this.http.post(`${this.rutaRaiz}$${url}`, parametros, {headers: new HttpHeaders({'':''})} );
 

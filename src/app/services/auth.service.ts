@@ -32,6 +32,11 @@ export class AuthenticationCustomService {
         username=this.desEncriptar(username);
         password= this.desEncriptar(password);
 
+
+/*
+
+        //Inicio Prueba ----
+
         let objRespuesta=[{
             'nombre':'erick55',
             'token':'XCVVBRFDFDEEEQWETR9483859',
@@ -67,20 +72,33 @@ export class AuthenticationCustomService {
         }
         
 
-        /*
+        //Termino prueba----------
+
+*/
+
+
+        let objPArameters=[{
+            'usrSistema':username,
+            'passwSistema':password
+        }];
+        
         //Esperemos a que el servicio WEb funcione
-       return this.servicioHttp.postRequest('login',{ username, password })
-            .pipe(map((user: Object| any) => {
+       return this.servicioHttp.postRequest('login',objPArameters)
+            .pipe(map((respuesta: Object| any) => {
                 // login successful if there's a jwt token in the response
-                if (user && user.token) {
+                //if (user && user.token) {
+                if (respuesta && respuesta.exito) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                    this.currentUserSubject.next(user);
+                    localStorage.setItem('currentUser', JSON.stringify(respuesta));
+                    this.currentUserSubject.next(respuesta);
+                }
+                else{
+                    console.log(respuesta.error);
                 }
 
-                return user;
+                return respuesta;
             }));
-       */
+    
 
 
     }

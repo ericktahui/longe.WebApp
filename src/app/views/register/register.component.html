@@ -5,48 +5,56 @@
     <form class="form-horizontal" style="margin:0 auto" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         
         <div class="form-group">
-                <label class="col-sm-12 control-label" for="firstName">Nombre: </label>
+                <label class="col-sm-12 control-label" for="nombre">Nombre: </label>
             <div class="col-sm-12">
-                <input type="text" formControlName="firstName" class="form-control max-largo-ctrl"
-                    placeholder="Tu nombre aqui..." [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
-                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                    <div *ngIf="f.firstName.errors.required">Nombre requerido</div>
+                <input type="text" formControlName="nombre" class="form-control max-largo-ctrl"
+                    placeholder="Tu nombre aqui..." [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+                <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+                    <div *ngIf="f.nombre.errors.required">Nombre requerido</div>
                 </div>
             </div>
         </div>
 
 
         <div class="form-group">
-                <label class="col-sm-12 control-label" for="lastName">Apellido: </label>
+                <label class="col-sm-12 control-label" for="apPaterno">Apellido Paterno: </label>
             <div class="col-sm-12">
-                <input type="text" formControlName="lastName" class="form-control max-largo-ctrl"
-                    placeholder="Tu apellido aqui..." [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
-                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-                    <div *ngIf="f.lastName.errors.required">Apellido requerido</div>
+                <input type="text" formControlName="apPaterno" class="form-control max-largo-ctrl"
+                    placeholder="Tu apellido paterno..." [ngClass]="{ 'is-invalid': submitted && f.apPaterno.errors }" />
+                <div *ngIf="submitted && f.apPaterno.errors" class="invalid-feedback">
+                    <div *ngIf="f.apPaterno.errors.required">Apellido requerido</div>
                 </div>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-12 control-label" for="email">Correo: </label>
+                <label class="col-sm-12 control-label" for="apMaterno">Apellido Materno: </label>
             <div class="col-sm-12">
-                <input type="text" formControlName="email" class="form-control max-largo-ctrl"
-                    placeholder="Tu correo aqui..." [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                    <div *ngIf="f.email.errors.required">Correo requerido</div>
+                <input type="text" formControlName="apMaterno" class="form-control max-largo-ctrl"
+                    placeholder="Tu apellido materno..." [ngClass]="{ 'is-invalid': submitted && f.apMaterno.errors }" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-12 control-label" for="correo">Correo: </label>
+            <div class="col-sm-12">
+                <input type="text" formControlName="correo" class="form-control max-largo-ctrl"
+                    placeholder="Tu correo aqui..." [ngClass]="{ 'is-invalid': submitted && f.correo.errors }" />
+                <div *ngIf="submitted && f.correo.errors" class="invalid-feedback">
+                    <div *ngIf="f.correo.errors.required">Correo requerido</div>
                 </div>
             </div>
         </div>
 
 
         <div class="form-group">
-            <label class="col-sm-12 control-label" for="password">Contraseña: </label>
+            <label class="col-sm-12 control-label" for="passwSistema">Contraseña: </label>
             <div class="col-sm-12">
-                <input type="password" formControlName="password" class="form-control max-largo-ctrl"
-                    placeholder="Tu Contraseña" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                    <div *ngIf="f.password.errors.required">Contraseña requerida</div>
-                    <div *ngIf="f.password.errors.minlength">Contraseña deberá ser de al menos 6 caacteres</div>
+                <input type="password" formControlName="passwSistema" class="form-control max-largo-ctrl"
+                    placeholder="Tu Contraseña" [ngClass]="{ 'is-invalid': submitted && f.passwSistema.errors }" />
+                <div *ngIf="submitted && f.passwSistema.errors" class="invalid-feedback">
+                    <div *ngIf="f.passwSistema.errors.required">Contraseña requerida</div>
+                    <div *ngIf="f.passwSistema.errors.minlength">Contraseña deberá ser de al menos 6 caacteres</div>
                 </div>
             </div>
         </div>
@@ -64,9 +72,9 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-12 control-label" for="capoName">Nombre Capoeira: </label>
+            <label class="col-sm-12 control-label" for="capoNombre">Nombre Capoeira: </label>
             <div class="col-sm-12">
-            <input type="text" formControlName="capoName" class="form-control max-largo-ctrl"
+            <input type="text" formControlName="capoNombre" class="form-control max-largo-ctrl"
                 placeholder="Tu apodo de capoeira..." />
             </div>
         </div>

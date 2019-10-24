@@ -35,12 +35,16 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
-            firstName: ['', Validators.required],
-            lastName: ['', Validators.required],
-            email: ['', Validators.required],
-            password: ['', [Validators.required, Validators.minLength(6)]],
+            nombre: ['', Validators.required],
+            apPaterno: ['', Validators.required],
+            apMaterno: [''],
+            correo: ['', Validators.required],
+            passwSistema: ['', [Validators.required, Validators.minLength(6)]],
             repetirpassword: ['', [Validators.required, Validators.minLength(6)]],
-            capoName :['']
+            fechaNacimiento: [''],
+            sexo: ['', Validators.required],
+            idClubFrecuentaMas: ['', Validators.required],
+            capoNombre :['']
         });
     }
 
@@ -52,6 +56,7 @@ export class RegisterComponent implements OnInit {
     onSubmit() {
         this.submitted = true;
 
+        console.log('Registrando...');
         if (this.registerForm.invalid) {
             return;
         }
