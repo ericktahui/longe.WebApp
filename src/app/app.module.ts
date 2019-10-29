@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
+
 import {
   GoogleApiModule, 
   //GoogleApiService, 
@@ -20,6 +21,9 @@ import {
 import { MaterialModule } from 'src/features/material/material.module';
 import { CustomModule } from '../features/custom/custom.module';
 import { RainbowModule } from '../features/rainbow/rainbow.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 // Routes
 import AppRoutes from './app.routes';
 // Services
@@ -59,7 +63,7 @@ import { OrderComponent } from './views/order/order.component';
 import { AdminComponent } from './views/admin/admin.component';
 import { StatisticsComponent } from './views/statistics/statistics.component';
 import { DespedidaComponent } from './views/despedida/despedida.component';
-
+import { NgbdDatepickerPopup }from './views/datepicker/datepicker-popup';
 
 //Guard para validacion de rutas
 import { AuthGuard } from './_guards/auth.guard';
@@ -70,7 +74,6 @@ import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { fakeBackendProvider } from './_helpers/fake-backend';
 import { ChangePasswordComponent } from './views/rescuePass/changePassword.component';
-
 
 
 // var gapiClientConfig: NgGapiClientConfig = {
@@ -128,7 +131,8 @@ import { ChangePasswordComponent } from './views/rescuePass/changePassword.compo
     StatisticsComponent,
     DespedidaComponent,
     ChangePasswordComponent,
-    RescuePassComponent
+    RescuePassComponent,
+    NgbdDatepickerPopup,
   ],
   imports: [
     BrowserModule,
@@ -140,6 +144,7 @@ import { ChangePasswordComponent } from './views/rescuePass/changePassword.compo
     AppRoutes,
     MaterialModule,
     HttpClientModule,
+    NgbModule,
     GoogleApiModule.forRoot({
       provide:NG_GAPI_CONFIG,
       useValue: gapiClientConfig
@@ -158,8 +163,8 @@ import { ChangePasswordComponent } from './views/rescuePass/changePassword.compo
               HttpService,
             {provide: HTTP_INTERCEPTORS,useClass: JwtInterceptor, multi:true},
             {provide: HTTP_INTERCEPTORS,useClass: ErrorInterceptor, multi:true},
-            fakeBackendProvider
+            fakeBackendProvider,
             ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

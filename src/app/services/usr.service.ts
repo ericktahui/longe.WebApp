@@ -20,13 +20,9 @@ const folder:string="usuario";
 
 @Injectable()
 export class UserService {
-   // public static readonly SESSION_STORAGE_KEY: string = "accessToken";
     public static  SESSION_STORAGE_KEY: string = "accessToken";
     private user: GoogleUser = undefined;
-
     public currentGoogleUser: Subject<GoogleUser>;
-
-    //private userRegistered:User;
 
     constructor(private http:HttpService,
                 private googleAuthService: GoogleAuthService, 
@@ -60,22 +56,7 @@ export class UserService {
         });
     }
 
-    /*
-     private signInSuccessHandler(res: GoogleUser) {
-        this.ngZone.run((arg) => {
-            this.user = res; 
-            console.log('+++++++++++++++++++');
-            console.log(this.user);
-            sessionStorage.setItem(UserService.SESSION_STORAGE_KEY, res.getAuthResponse().access_token);
-            console.log(sessionStorage.getItem(UserService.SESSION_STORAGE_KEY));
-            console.log('+++++++++++++++++++');
-          
-        });
-    }
-
-    
-    */
-
+ 
     public signOut():void{
         console.log('Cerrando sesión');
         this.singOutHandler();
@@ -104,19 +85,6 @@ export class UserService {
         console.log( _.isEmpty(sessionStorage.getItem(UserService.SESSION_STORAGE_KEY)) );
 
      return !_.isEmpty(sessionStorage.getItem(UserService.SESSION_STORAGE_KEY));
-
-    //     console.log('usuario:');
-    //     console.log(this.user);
-
-    //     if (!this.user) {
-    //        console.log("No esta logueado");
-    //        return false;
-    //     }
-    //     else{
-    //         console.log("SIII esta logueado");
-    //         return true;
-    //    }
-
     }
 
 
@@ -134,20 +102,23 @@ export class UserService {
         
         console.log('usr.service register:')
         console.log(formulario);
-       // console.log(formulario.firstName);
-
+       
         let metodo="registeruser";
-        let usrRegistrar={
-            nombre:formulario.firstName,
-            apPaterno:formulario.lastName,
-            correo: formulario.email,
-            password: formulario.password,
-            repetirpassword: formulario.repetirpassword,
-            capoName : formulario.capoName!=''&&formulario.capoName!=undefined && formulario.capoName!=null?formulario.capoName : ''
-        };
+      
+        let objParameters=[{
+            "nombre":formulario.nombre,
+            "usrSistema":formulario.capoNombre!=undefined && formulario.capoNombre!=null && formulario.capoNombre!=""? formulario.capoNombre : "",
+            "correo":formulario.correo,
+            "passwSistema":formulario.passwSistema,
+            "apPaterno": formulario.apPaterno,
+            "apMaterno":formulario.apMaterno,
+            "fechaNacimiento":formulario.fechaNacimiento,
+            "idClubFrecuentaMas": formulario.idClubFrecuentaMas,
+            "sexo":formulario.sexo,
+            "token":HttpService.TOKEN_SERVICIO
+        }];
 
-
-         return this.http.postRequest(metodo,usrRegistrar);
+         return this.http.postRequest(metodo,objParameters);
 
     }
 
@@ -159,7 +130,7 @@ export class UserService {
 
         let metodo="rescuePass";
         let passwordRescue={
-            email: formulario.email,
+            "email": formulario.email,
           };
           
          return this.http.postRequest(metodo,passwordRescue);
@@ -176,38 +147,6 @@ export class UserService {
         }
         return sessionStorage.getItem(UserService.SESSION_STORAGE_KEY);
     }
-
-
-
-    /*
-    public isUserSignedIn_bkp(): boolean {
-
-        //console.log('key: '+ sessionStorage.getItem(UserService.SESSION_STORAGE_KEY));
-        //return !_.isEmpty(sessionStorage.getItem(UserService.SESSION_STORAGE_KEY));
-
-
-        let token: string  = sessionStorage.getItem(UserService.SESSION_STORAGE_KEY);
-         if (token) {
-            console.log("SII firmado");
-         }
-         else{
-            console.log("No esta firmado");
-        }
-
-        console.log('token: '+ token);
-        return !token
-       
-    }
-*/
-
-
-    // private singOutHandler(){
-    //     this.googleAuthService.getAuth().subscribe((auth) => {
-    //        let res= auth.signOut();
-    //        console.log(res);
-    //     });
-    // }
-
 
 
 }

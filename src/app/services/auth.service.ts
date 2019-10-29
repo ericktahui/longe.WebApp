@@ -23,7 +23,6 @@ export class AuthenticationCustomService {
     }
 
 
-    //  login(username: string, password: string): Object| any {
 
     login(username: string, password: string): Observable<any>{
        
@@ -78,8 +77,9 @@ export class AuthenticationCustomService {
 
 
         let objPArameters=[{
-            'usrSistema':username,
-            'passwSistema':password
+            "usrSistema":username,
+            "passwSistema":password,
+            "token":HttpService.TOKEN_SERVICIO
         }];
         
         //Esperemos a que el servicio WEb funcione

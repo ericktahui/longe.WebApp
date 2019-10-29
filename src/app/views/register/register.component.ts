@@ -10,6 +10,9 @@ import { UserService } from 'src/app/services/usr.service';
 import { AuthenticationCustomService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
 
+import { MustMatch } from 'src/app/_helpers/must-match.validator';
+
+
 @Component({
     selector: 'app-register',
     templateUrl: './register.component.html',
@@ -38,13 +41,15 @@ export class RegisterComponent implements OnInit {
             nombre: ['', Validators.required],
             apPaterno: ['', Validators.required],
             apMaterno: [''],
-            correo: ['', Validators.required],
+            correo: ['', [Validators.required,Validators.email]],
             passwSistema: ['', [Validators.required, Validators.minLength(6)]],
             repetirpassword: ['', [Validators.required, Validators.minLength(6)]],
             fechaNacimiento: [''],
             sexo: ['', Validators.required],
             idClubFrecuentaMas: ['', Validators.required],
             capoNombre :['']
+        },{
+            validator: MustMatch('passwSistema','repetirpassword')
         });
     }
 

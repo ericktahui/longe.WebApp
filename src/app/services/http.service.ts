@@ -3,7 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class HttpService  {
-
+    public static  TOKEN_SERVICIO: string = "QWERTY";
+    
     //Deesarrollo
     // rutaRaiz: string = "http://10.1.50.122:8079/longe/api/public/api/";
     //  rutaRaiz: string = "http://localhost:8079/longe/api/public/api/";
