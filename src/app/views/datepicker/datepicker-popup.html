@@ -1,7 +1,7 @@
 <form class="form-horizontal" style="margin:0 auto; max-width: 300px;" >
     <div class="form-group">
       <div class="input-group">
-        <input class="form-control" placeholder="aaaa-mm-dd"
+        <input class="form-control" placeholder="aaaa-mm-dd" [startDate]="{year: 1980, month: 1}" (ngModelChange) = "change($event)"
                name="dp" [(ngModel)]="modelFecha" ngbDatepicker #d="ngbDatepicker">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
@@ -11,7 +11,8 @@
   </form>
 
 
-
+<!--
 
   <hr/>
 <pre>Model: {{ modelFecha | json }}</pre>
+-->

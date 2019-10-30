@@ -22,6 +22,8 @@ export class RegisterComponent implements OnInit {
     registerForm: FormGroup;
     loading = false;
     submitted = false;
+    fechaSeleccionada:any;
+    
 
     constructor(
         private formBuilder: FormBuilder,
@@ -47,7 +49,7 @@ export class RegisterComponent implements OnInit {
             fechaNacimiento: [''],
             sexo: ['', Validators.required],
             idClubFrecuentaMas: ['', Validators.required],
-            capoNombre :['']
+            capoNombre :[''],
         },{
             validator: MustMatch('passwSistema','repetirpassword')
         });
@@ -58,14 +60,30 @@ export class RegisterComponent implements OnInit {
 
 
 
+    
+    OnSelectDate(event){
+        console.log('Seleccionó fecha:');
+        console.log(event);
+        this.fechaSeleccionada= event;
+    }
+   
+
+
     onSubmit() {
         this.submitted = true;
 
         console.log('Registrando...');
+        //console.log(this.registerForm.value);
+        console.log(this.fechaSeleccionada);
+ 
+        var cc= this.registerForm.get("fechaNacimiento");
+           cc.setValue(this.fechaSeleccionada);
+           
+        console.log(this.registerForm.value);
+
         if (this.registerForm.invalid) {
             return;
         }
-
 
         this.loading = true;
         this.userService.register(this.registerForm.value)

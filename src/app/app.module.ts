@@ -63,7 +63,8 @@ import { OrderComponent } from './views/order/order.component';
 import { AdminComponent } from './views/admin/admin.component';
 import { StatisticsComponent } from './views/statistics/statistics.component';
 import { DespedidaComponent } from './views/despedida/despedida.component';
-import { NgbdDatepickerPopup }from './views/datepicker/datepicker-popup';
+import { NgbdDatepickerPopup } from './views/datepicker/datepicker-popup';
+import { ComboClubComponent } from './views/comboClub/combo-club.component';
 
 //Guard para validacion de rutas
 import { AuthGuard } from './_guards/auth.guard';
@@ -133,6 +134,7 @@ import { ChangePasswordComponent } from './views/rescuePass/changePassword.compo
     ChangePasswordComponent,
     RescuePassComponent,
     NgbdDatepickerPopup,
+    ComboClubComponent,
   ],
   imports: [
     BrowserModule,
